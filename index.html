@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEURO EYE | Análisis ocular</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <a href="#inicio" class="brand">NEURO<span> EYE</span></a>
+
+        <nav>
+            <a href="#inicio" class="active">Portada</a>
+            <a href="#analizar">Analizar</a>
+            <a href="#como-funciona">Cómo usar</a>
+            <a href="#quienes">Quiénes somos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- PORTADA -->
+        <section id="inicio" class="hero">
+            <div class="neuron neuron-one">◌</div>
+            <div class="neuron neuron-two">◌</div>
+
+            <div class="hero-content">
+                <p class="eyebrow">INTELIGENCIA ARTIFICIAL</p>
+
+                <h1>NEURO</h1>
+
+                <div class="eye-logo" aria-label="Logo de un ojo">
+                    <div class="eye-shape">
+                        <div class="pupil"></div>
+                    </div>
+                    <div class="rays">
+                        <i></i><i></i><i></i>
+                    </div>
+                </div>
+
+                <div class="eye-word">E Y E</div>
+
+                <p class="hero-text">
+                    Sistema experimental de análisis de imágenes oculares
+                    para la investigación de patrones asociados con
+                    la enfermedad de Alzheimer.
+                </p>
+
+                <a href="#analizar" class="primary-button">Analizar una imagen</a>
+            </div>
+        </section>
+
+        <!-- ANALIZAR -->
+        <section id="analizar" class="section analysis-section">
+            <div class="section-heading">
+                <p class="eyebrow">ANÁLISIS</p>
+                <h2>Analiza una imagen ocular</h2>
+                <p>
+                    Selecciona una imagen para preparar el análisis de
+                    iris y pupila.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <label for="imageInput" class="upload-area" id="uploadArea">
+                    <div class="upload-icon">◉</div>
+                    <h3>Selecciona una imagen</h3>
+                    <p>Haz clic aquí para elegir una fotografía del ojo.</p>
+                    <span class="upload-button">Elegir imagen</span>
+                    <input type="file" id="imageInput" accept="image/*">
+                </label>
+
+                <div class="preview-area hidden" id="previewArea">
+                    <div class="preview-image-wrapper">
+                        <img id="previewImage" alt="Vista previa del ojo">
+                    </div>
+
+                    <div class="preview-info">
+                        <p class="eyebrow">IMAGEN SELECCIONADA</p>
+                        <h3 id="fileName">Imagen</h3>
+                        <p id="fileInfo"></p>
+
+                        <button class="primary-button" id="analyzeButton">
+                            Iniciar análisis
+                        </button>
+
+                        <button class="secondary-button" id="changeButton">
+                            Cambiar imagen
+                        </button>
+                    </div>
+                </div>
+
+                <div class="result-area hidden" id="resultArea">
+                    <div class="result-icon">✓</div>
+                    <p class="eyebrow">.</p>
+                    <h3>Análisis preparado</h3>
+
+                    <div class="notice">
+                        Por favor, verifica resultados con un médico especialista. 
+                        Este análisis no sustituye un análisis médico:)
+                    </div>
+
+                    <button class="secondary-button" id="newAnalysisButton">
+                        Analizar otra imagen
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="como-funciona" class="section dark-section">
+            <div class="section-heading">
+                <p class="eyebrow">PROCESO</p>
+                <h2>¿Cómo funcionará?</h2>
+            </div>
+
+            <div class="steps">
+                <article class="step">
+                    <span>01</span>
+                    <h3>Imagen ocular</h3>
+                    <p>
+                        Se recibe una imagen que contenga la región del ojo.
+                    </p>
+                </article>
+
+                <article class="step">
+                    <span>02</span>
+                    <h3>Iris y pupila</h3>
+                    <p>
+                        Se desarrollarán algoritmos propios para localizar
+                        y segmentar estas regiones. 
+                    </p>
+                </article>
+
+                <article class="step">
+                    <span>03</span>
+                    <h3>Características</h3>
+                    <p>
+                        Se extraerán patrones numéricos de la imagen.
+                    </p>
+                </article>
+
+                <article class="step">
+                    <span>04</span>
+                    <h3>Modelo</h3>
+                    <p>
+                        Un clasificador implementado desde cero analizará
+                        los patrones aprendidos.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="quienes" class="section">
+            <div class="about-grid">
+                <div>
+                    <p class="eyebrow">EL PROYECTO</p>
+                    <h2>Investigación detrás de NEURO EYE</h2>
+                </div>
+
+                <div>
+                    <p>
+                        NEURO EYE es un proyecto enfocado en..............
+                    </p>
+
+                    <p>
+                        El objetivo de nuestro proyecto es........
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto" class="contact-section">
+            <div>
+                <p class="eyebrow">CONTACTO</p>
+                <h2>¿Tienes alguna pregunta?</h2>
+                <p>
+                    conectar despuesss
+                </p>
+            </div>
+
+            <a href="correo: neuroeye@gmail.com" class="secondary-button">
+                Escribir al proyecto
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <strong>NEURO EYE</strong>
+        <span>Proyecto académico de investigación</span>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
