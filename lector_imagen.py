@@ -1,24 +1,139 @@
-def cargar_pgm(ruta):
+def leer_archivo_binario(nombre):
 
-    archivo = open(ruta, "r")
+    archivo = open(
+        nombre,
+        "rb"
+    )
 
     datos = archivo.read()
 
     archivo.close()
 
-    partes = datos.split()
+    return datos
 
-    if partes[0] != "P2":
-        print("Error: la imagen no es PGM P2")
-        return None
 
-    ancho = int(partes[1])
-    alto = int(partes[2])
-    maximo = int(partes[3])
+def eliminar_comentarios(datos):
+
+    resultado = []
+
+    i = 0
+
+    while i < len(datos):
+
+        if datos[i] == 35:
+
+            while (
+                i < len(datos)
+                and datos[i] != 10
+            ):
+                i += 1
+
+        else:
+
+            resultado.append(
+                datos[i]
+            )
+
+        i += 1
+
+    return bytes(resultado)
+
+
+def separar_tokens(datos):
+
+    datos = eliminar_comentarios(
+            datos
+        )
+
+    tokens = []
+
+    actual = bytearray()
+
+    for byte in datos:
+
+        if byte in (
+            9,
+            10,
+            13,
+            32
+        ):
+
+            if len(actual) > 0:
+
+                tokens.append(
+                    bytes(actual)
+                )
+
+                actual = bytearray()
+
+        else:
+
+            actual.append(byte)
+
+
+    if len(actual) > 0:
+
+        tokens.append(
+            bytes(actual)
+        )
+
+
+    return tokens
+
+
+def leer_pgm(nombre):
+
+    datos = leer_archivo_binario(
+            nombre
+        )
+
+
+    if not datos.startswith(b"P5"):
+
+        raise ValueError(
+            "El archivo no es PGM binario P5."
+        )
+
+
+    tokens = separar_tokens(
+            datos
+        )
+
+
+    ancho = int(tokens[1])
+
+
+    alto = int(tokens[2])
+
+
+    maximo = int(tokens[3])
+
+
+    posicion = datos.find(
+            tokens[3]
+        )
+
+
+    if posicion == -1:
+
+        raise ValueError(
+            "No se encontró el encabezado."
+        )
+
+
+    inicio = posicion + len(tokens[3])
+
+
+    while (
+        inicio < len(datos)
+        and datos[inicio] in
+        (9, 10, 13, 32)
+    ):
+
+        inicio += 1
+
 
     pixeles = []
-
-    posicion = 4
 
     for y in range(alto):
 
@@ -26,12 +141,35 @@ def cargar_pgm(ruta):
 
         for x in range(ancho):
 
-            valor = int(partes[posicion])
+            indice = y * ancho + x
+
+
+            if indice >= (
+                len(datos) - inicio
+            ):
+
+                valor = 0
+
+            else:
+
+                valor = datos[
+                        inicio + indice
+                    ]
+
 
             fila.append(valor)
 
-            posicion = posicion + 1
-
         pixeles.append(fila)
 
-    return ancho, alto, maximo, pixeles
+
+    return {
+
+        "ancho": ancho,
+
+        "alto": alto,
+
+        "maximo": maximo,
+
+        "pixeles": pixeles
+
+    }

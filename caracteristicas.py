@@ -1,55 +1,118 @@
-def detectar_pupila(imagen):
+def promedio(valores):
 
-    ancho = imagen[0]
-    alto = imagen[1]
-    pixeles = imagen[3]
-
-    suma_x = 0
-    suma_y = 0
-    cantidad = 0
-
-    umbral = 50
-
-    for y in range(alto):
-
-        for x in range(ancho):
-
-            valor = pixeles[y][x]
-
-            if valor <= umbral:
-
-                suma_x = suma_x + x
-                suma_y = suma_y + y
-
-                cantidad = cantidad + 1
-
-    if cantidad == 0:
-
-        return None
-
-    centro_x = suma_x / cantidad
-    centro_y = suma_y / cantidad
-
-    return centro_x, centro_y, cantidad
-
-def promedio_imagen(imagen):
-
-    ancho = imagen[0]
-    alto = imagen[1]
-    pixeles = imagen[3]
-
-    suma = 0
-    cantidad = 0
-
-    for y in range(alto):
-
-        for x in range(ancho):
-
-            suma = suma + pixeles[y][x]
-
-            cantidad = cantidad + 1
-
-    if cantidad == 0:
+    if len(valores) == 0:
         return 0
 
-    return suma / cantidad
+    suma = 0
+
+    for valor in valores:
+        suma += valor
+
+    return suma / len(valores)
+
+
+def minimo(valores):
+
+    if len(valores) == 0:
+        return 0
+
+    resultado = valores[0]
+
+    for valor in valores:
+
+        if valor < resultado:
+            resultado = valor
+
+    return resultado
+
+
+def maximo(valores):
+
+    if len(valores) == 0:
+        return 0
+
+    resultado = valores[0]
+
+    for valor in valores:
+
+        if valor > resultado:
+            resultado = valor
+
+    return resultado
+
+
+def rango(valores):
+
+    if len(valores) == 0:
+        return 0
+
+    return maximo(valores) - minimo(valores)
+
+
+def varianza(valores):
+
+    if len(valores) == 0:
+        return 0
+
+    media = promedio(valores)
+
+    suma = 0
+
+    for valor in valores:
+
+        diferencia = valor - media
+
+        suma += diferencia * diferencia
+
+    return suma / len(valores)
+
+
+def desviacion_estandar(valores):
+
+    return varianza(valores) ** 0.5
+
+
+def caracteristicas_grises(grises):
+
+    return {
+
+        "promedio":
+            promedio(grises),
+
+        "minimo":
+            minimo(grises),
+
+        "maximo":
+            maximo(grises),
+
+        "rango":
+            rango(grises),
+
+        "varianza":
+            varianza(grises),
+
+        "desviacion":
+            desviacion_estandar(grises)
+
+    }
+
+
+def histograma_grises(grises):
+
+    histograma = [0] * 256
+
+    for valor in grises:
+
+        valor_entero = int(valor)
+
+        if valor_entero < 0:
+            valor_entero = 0
+
+        if valor_entero > 255:
+            valor_entero = 255
+
+        histograma[
+            valor_entero
+        ] += 1
+
+    return histograma

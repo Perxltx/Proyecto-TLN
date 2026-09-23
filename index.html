@@ -3,195 +3,974 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>NEURO EYE | Análisis ocular</title>
+
     <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
-    <header class="navbar">
-        <a href="#inicio" class="brand">NEURO<span> EYE</span></a>
 
-        <nav>
-            <a href="#inicio" class="active">Portada</a>
-            <a href="#analizar">Analizar</a>
-            <a href="#como-funciona">Cómo usar</a>
-            <a href="#quienes">Quiénes somos</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
+<header class="navbar">
 
-    <main>
-        <!-- PORTADA -->
-        <section id="inicio" class="hero">
-            <div class="neuron neuron-one">◌</div>
-            <div class="neuron neuron-two">◌</div>
+    <a href="#inicio" class="brand">
+        NEURO<span> EYE</span>
+    </a>
 
-            <div class="hero-content">
-                <p class="eyebrow">INTELIGENCIA ARTIFICIAL</p>
+    <nav>
+        <a href="#inicio" class="active">Portada</a>
+        <a href="#analizar">Analizar</a>
+        <a href="#como-funciona">Cómo usar</a>
+        <a href="#quienes">Quiénes somos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
 
-                <h1>NEURO</h1>
+</header>
 
-                <div class="eye-logo" aria-label="Logo de un ojo">
-                    <div class="eye-shape">
-                        <div class="pupil"></div>
-                    </div>
-                    <div class="rays">
-                        <i></i><i></i><i></i>
-                    </div>
-                </div>
+<main>
 
-                <div class="eye-word">E Y E</div>
+<section id="inicio" class="hero">
 
-                <p class="hero-text">
-                    Sistema experimental de análisis de imágenes oculares
-                    para la investigación de patrones asociados con
-                    la enfermedad de Alzheimer.
-                </p>
+    <div class="neuron neuron-one">◌</div>
+    <div class="neuron neuron-two">◌</div>
 
-                <a href="#analizar" class="primary-button">Analizar una imagen</a>
-            </div>
-        </section>
+    <div class="hero-content">
 
-        <!-- ANALIZAR -->
-        <section id="analizar" class="section analysis-section">
-            <div class="section-heading">
-                <p class="eyebrow">ANÁLISIS</p>
-                <h2>Analiza una imagen ocular</h2>
-                <p>
-                    Selecciona una imagen para preparar el análisis de
-                    iris y pupila.
-                </p>
+        <p class="eyebrow">
+            INTELIGENCIA ARTIFICIAL · SALUD
+        </p>
+
+        <h1>NEURO</h1>
+
+        <div class="eye-logo">
+
+            <div class="eye-shape">
+                <div class="pupil"></div>
             </div>
 
-            <div class="analysis-card">
-                <label for="imageInput" class="upload-area" id="uploadArea">
-                    <div class="upload-icon">◉</div>
-                    <h3>Selecciona una imagen</h3>
-                    <p>Haz clic aquí para elegir una fotografía del ojo.</p>
-                    <span class="upload-button">Elegir imagen</span>
-                    <input type="file" id="imageInput" accept="image/*">
-                </label>
+            <div class="rays">
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
 
-                <div class="preview-area hidden" id="previewArea">
-                    <div class="preview-image-wrapper">
-                        <img id="previewImage" alt="Vista previa del ojo">
+        </div>
+
+        <div class="eye-word">
+            E Y E
+        </div>
+
+        <p class="hero-text">
+            Sistema experimental de análisis de imágenes oculares
+            para la investigación de patrones asociados con
+            la enfermedad de Alzheimer.
+        </p>
+
+        <a href="#analizar" class="primary-button">
+            Analizar una imagen
+        </a>
+
+    </div>
+
+</section>
+
+<section id="analizar" class="section analysis-section">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            ANÁLISIS
+        </p>
+
+        <h2>
+            Analiza una imagen ocular
+        </h2>
+
+        <p>
+            El sistema analizará las características de la imagen
+            antes de decidir qué procesamiento resulta conveniente.
+        </p>
+
+    </div>
+
+    <div class="analysis-card">
+
+        <div class="upload-area" id="uploadArea">
+
+            <div class="upload-icon">
+                ◉
+            </div>
+
+            <h3>
+                Selecciona una imagen
+            </h3>
+
+            <p>
+                JPG, JPEG, PNG, BMP, GIF, WEBP y otros formatos
+                compatibles con tu navegador.
+            </p>
+
+            <label for="imageInput" class="upload-button">
+                Elegir imagen
+            </label>
+
+            <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+            >
+
+        </div>
+
+        <div
+            class="preview-area hidden"
+            id="previewArea"
+        >
+
+            <div class="preview-image-wrapper">
+
+                <img
+                    id="previewImage"
+                    alt="Vista previa del ojo"
+                >
+
+            </div>
+
+            <div class="preview-info">
+
+                <p class="eyebrow">
+                    IMAGEN SELECCIONADA
+                </p>
+
+                <h3 id="fileName">
+                    Imagen
+                </h3>
+
+                <p id="fileInfo"></p>
+
+                <button
+                    class="primary-button"
+                    id="analyzeButton"
+                    type="button"
+                >
+                    Analizar imagen
+                </button>
+
+                <button
+                    class="secondary-button dark-text-button"
+                    id="changeButton"
+                    type="button"
+                >
+                    Cambiar imagen
+                </button>
+
+            </div>
+
+        </div>
+
+        <div
+            class="processing hidden"
+            id="processingArea"
+        >
+
+            <div class="loader"></div>
+
+            <h3>
+                Analizando imagen...
+            </h3>
+
+            <p>
+                Evaluando color, iluminación, contraste
+                e información visual.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="como-funciona" class="section dark-section">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            PROCESO
+        </p>
+
+        <h2>
+            ¿Cómo funcionará?
+        </h2>
+
+    </div>
+
+    <div class="steps">
+
+        <article class="step">
+
+            <span>01</span>
+
+            <h3>
+                Imagen ocular
+            </h3>
+
+            <p>
+                Se recibe una imagen que contenga
+                la región del ojo.
+            </p>
+
+        </article>
+
+        <article class="step">
+
+            <span>02</span>
+
+            <h3>
+                Análisis
+            </h3>
+
+            <p>
+                Se estudian brillo, contraste,
+                color y distribución de intensidades.
+            </p>
+
+        </article>
+
+        <article class="step">
+
+            <span>03</span>
+
+            <h3>
+                Preprocesamiento
+            </h3>
+
+            <p>
+                El sistema selecciona la transformación
+                que modifica menos la información útil.
+            </p>
+
+        </article>
+
+        <article class="step">
+
+            <span>04</span>
+
+            <h3>
+                Características
+            </h3>
+
+            <p>
+                Posteriormente se podrán extraer
+                características del iris y la pupila.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+<section id="quienes" class="section">
+
+    <div class="about-grid">
+
+        <div>
+
+            <p class="eyebrow">
+                EL PROYECTO
+            </p>
+
+            <h2>
+                Investigación detrás de NEURO EYE
+            </h2>
+
+        </div>
+
+        <div>
+
+            <p>
+                NEURO EYE es un proyecto académico enfocado en
+            </p>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contacto" class="contact-section">
+
+    <div>
+
+        <p class="eyebrow">
+            CONTACTO
+        </p>
+
+        <h2>
+            ¿Tienes alguna pregunta?
+        </h2>
+
+    </div>
+
+    <a
+        href="mailto:contacto@neuroeye.example"
+        class="secondary-button"
+    >
+        Escribir al proyecto
+    </a>
+
+</section>
+
+</main>
+
+<footer>
+
+    <strong>
+        NEURO EYE
+    </strong>
+
+    <span>
+        Proyecto académico de investigación
+    </span>
+
+</footer>
+
+
+<div
+    id="analysisModal"
+    class="modal hidden"
+>
+
+    <div class="modal-backdrop"></div>
+
+    <div class="analysis-modal">
+
+        <button
+            id="closeAnalysis"
+            class="close-modal"
+            type="button"
+        >
+            ×
+        </button>
+
+        <div class="modal-header">
+
+            <p class="eyebrow">
+                ANÁLISIS DE IMAGEN
+            </p>
+
+            <h2>
+                Análisis
+            </h2>
+
+            <p id="analysisSummary">
+                Evaluación de las características de la imagen.
+            </p>
+
+        </div>
+
+        <div class="analysis-main-grid">
+
+            <div class="modal-image-section">
+
+                <div class="image-panel">
+
+                    <p class="panel-title">
+                        IMAGEN ORIGINAL
+                    </p>
+
+                    <div class="modal-image-box">
+
+                        <img
+                            id="originalAnalysisImage"
+                            alt="Imagen original"
+                        >
+
                     </div>
 
-                    <div class="preview-info">
-                        <p class="eyebrow">IMAGEN SELECCIONADA</p>
-                        <h3 id="fileName">Imagen</h3>
-                        <p id="fileInfo"></p>
-
-                        <button class="primary-button" id="analyzeButton">
-                            Iniciar análisis
-                        </button>
-
-                        <button class="secondary-button" id="changeButton">
-                            Cambiar imagen
-                        </button>
-                    </div>
                 </div>
 
-                <div class="result-area hidden" id="resultArea">
-                    <div class="result-icon">✓</div>
-                    <p class="eyebrow">.</p>
-                    <h3>Análisis preparado</h3>
+                <div class="image-panel">
 
-                    <div class="notice">
-                        Por favor, verifica resultados con un médico especialista. 
-                        Este análisis no sustituye un análisis médico:)
+                    <p class="panel-title">
+                        IMAGEN PROCESADA
+                    </p>
+
+                    <div class="modal-image-box">
+
+                        <canvas
+                            id="processedCanvas"
+                        ></canvas>
+
                     </div>
 
-                    <button class="secondary-button" id="newAnalysisButton">
-                        Analizar otra imagen
+                </div>
+
+            </div>
+
+            <div class="automatic-analysis">
+
+                <p class="eyebrow">
+                    EVALUACIÓN DE LA IMAGEN
+                </p>
+
+                <h3>
+                    Proceso recomendado
+                </h3>
+
+                <div class="metrics-grid">
+
+                    <div class="metric-card">
+
+                        <span>
+                            Brillo
+                        </span>
+
+                        <strong id="brightnessValue">
+                            -
+                        </strong>
+
+                        <small id="brightnessText">
+                        </small>
+
+                    </div>
+
+                    <div class="metric-card">
+
+                        <span>
+                            Contraste
+                        </span>
+
+                        <strong id="contrastValue">
+                            -
+                        </strong>
+
+                        <small id="contrastText">
+                        </small>
+
+                    </div>
+
+                    <div class="metric-card">
+
+                        <span>
+                            Saturación
+                        </span>
+
+                        <strong id="saturationValue">
+                            -
+                        </strong>
+
+                        <small id="saturationText">
+                        </small>
+
+                    </div>
+
+                    <div class="metric-card">
+
+                        <span>
+                            Variación tonal
+                        </span>
+
+                        <strong id="variationValue">
+                            -
+                        </strong>
+
+                        <small>
+                            Distribución
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="recommendation-card">
+
+                    <p class="eyebrow">
+                        RECOMENDACIÓN DEL SISTEMA
+                    </p>
+
+                    <h3 id="recommendedMode">
+                        -
+                    </h3>
+
+                    <p id="recommendationText">
+                    </p>
+
+                    <div
+                        id="recommendationList"
+                        class="recommendation-list"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="histograms-section">
+
+            <div class="histogram-title">
+
+                <p class="eyebrow">
+                    DISTRIBUCIÓN DE INTENSIDADES
+                </p>
+
+                <h3>
+                    Histogramas
+                </h3>
+
+            </div>
+
+            <div class="histograms-grid">
+
+                <div class="histogram-card">
+
+                    <h4>
+                        Histograma original
+                    </h4>
+
+                    <canvas
+                        id="originalHistogram"
+                    ></canvas>
+
+                </div>
+
+                <div class="histogram-card">
+
+                    <h4>
+                        Histograma procesado
+                    </h4>
+
+                    <canvas
+                        id="processedHistogram"
+                    ></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                id="manualButton"
+                class="manual-main-button"
+                type="button"
+            >
+                Modificar manualmente
+            </button>
+
+            <button
+                id="applyRecommendation"
+                class="apply-main-button"
+                type="button"
+            >
+                Aplicar recomendación
+            </button>
+
+            <button
+                id="keepOriginalButton"
+                class="keep-button"
+                type="button"
+            >
+                Conservar original
+            </button>
+
+        </div>
+
+        <div
+            id="manualPanel"
+            class="manual-panel hidden"
+        >
+
+            <div class="manual-panel-header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        EDICIÓN MANUAL
+                    </p>
+
+                    <h3>
+                        Modificar imagen
+                    </h3>
+
+
+                </div>
+
+                <button
+                    id="closeManual"
+                    class="close-manual"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+            <div class="manual-layout">
+
+                <div class="manual-controls">
+
+                    <h4>
+                        Modo de imagen
+                    </h4>
+
+                    <div class="manual-buttons">
+
+                        <button
+                            class="manual-option active"
+                            data-mode="rgb"
+                            type="button"
+                        >
+                            RGB
+                        </button>
+
+                        <button
+                            class="manual-option"
+                            data-mode="gray"
+                            type="button"
+                        >
+                            Escala de grises
+                        </button>
+
+                        <button
+                            class="manual-option"
+                            data-mode="color"
+                            type="button"
+                        >
+                            Mapa de intensidad
+                        </button>
+
+                    </div>
+
+                    <h4>
+                        Ajustes
+                    </h4>
+
+                    <div class="range-control">
+
+                        <div class="range-label">
+
+                            <span>
+                                Brillo
+                            </span>
+
+                            <strong id="manualBrightnessValue">
+                                0
+                            </strong>
+
+                        </div>
+
+                        <input
+                            type="range"
+                            id="manualBrightness"
+                            min="-100"
+                            max="100"
+                            value="0"
+                        >
+
+                    </div>
+
+                    <div class="range-control">
+
+                        <div class="range-label">
+
+                            <span>
+                                Contraste
+                            </span>
+
+                            <strong id="manualContrastValue">
+                                0
+                            </strong>
+
+                        </div>
+
+                        <input
+                            type="range"
+                            id="manualContrast"
+                            min="-100"
+                            max="100"
+                            value="0"
+                        >
+
+                    </div>
+
+                    <div class="range-control">
+
+                        <div class="range-label">
+
+                            <span>
+                                Saturación
+                            </span>
+
+                            <strong id="manualSaturationValue">
+                                0
+                            </strong>
+
+                        </div>
+
+                        <input
+                            type="range"
+                            id="manualSaturation"
+                            min="-100"
+                            max="100"
+                            value="0"
+                        >
+
+                    </div>
+
+                    <h4>
+                        Filtros
+                    </h4>
+
+                    <select
+                        id="manualFilter"
+                        class="manual-select"
+                    >
+
+                        <option value="none">
+                            Sin filtro
+                        </option>
+
+                        <option value="blur">
+                            Suavizado
+                        </option>
+
+                        <option value="sharpen">
+                            Realce de bordes
+                        </option>
+
+                    </select>
+
+                    <div
+                        id="manualStatus"
+                        class="manual-status"
+                    >
+                        Imagen original sin modificaciones.
+                    </div>
+
+                    <button
+                        id="undoButton"
+                        class="manual-secondary"
+                        type="button"
+                    >
+                        Deshacer
                     </button>
-                </div>
-            </div>
-        </section>
 
-        <section id="como-funciona" class="section dark-section">
-            <div class="section-heading">
-                <p class="eyebrow">PROCESO</p>
-                <h2>¿Cómo funcionará?</h2>
-            </div>
+                    <button
+                        id="resetManual"
+                        class="manual-reset"
+                        type="button"
+                    >
+                        Restablecer
+                    </button>
 
-            <div class="steps">
-                <article class="step">
-                    <span>01</span>
-                    <h3>Imagen ocular</h3>
-                    <p>
-                        Se recibe una imagen que contenga la región del ojo.
-                    </p>
-                </article>
-
-                <article class="step">
-                    <span>02</span>
-                    <h3>Iris y pupila</h3>
-                    <p>
-                        Se desarrollarán algoritmos propios para localizar
-                        y segmentar estas regiones. 
-                    </p>
-                </article>
-
-                <article class="step">
-                    <span>03</span>
-                    <h3>Características</h3>
-                    <p>
-                        Se extraerán patrones numéricos de la imagen.
-                    </p>
-                </article>
-
-                <article class="step">
-                    <span>04</span>
-                    <h3>Modelo</h3>
-                    <p>
-                        Un clasificador implementado desde cero analizará
-                        los patrones aprendidos.
-                    </p>
-                </article>
-            </div>
-        </section>
-
-        <section id="quienes" class="section">
-            <div class="about-grid">
-                <div>
-                    <p class="eyebrow">EL PROYECTO</p>
-                    <h2>Investigación detrás de NEURO EYE</h2>
                 </div>
 
-                <div>
-                    <p>
-                        NEURO EYE es un proyecto enfocado en..............
-                    </p>
+                <div class="manual-preview">
 
-                    <p>
-                        El objetivo de nuestro proyecto es........
-                    </p>
+                    <div class="manual-image-grid">
+
+                        <div>
+
+                            <p class="panel-title">
+                                ORIGINAL
+                            </p>
+
+                            <div class="manual-image-box">
+
+                                <img
+                                    id="manualOriginalImage"
+                                    alt="Imagen original"
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <p class="panel-title">
+                                VISTA PREVIA
+                            </p>
+
+                            <div class="manual-image-box">
+
+                                <canvas
+                                    id="manualCanvas"
+                                ></canvas>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="manual-histogram">
+
+                        <p class="panel-title">
+                            HISTOGRAMA ACTUAL
+                        </p>
+
+                        <canvas
+                            id="manualHistogram"
+                        ></canvas>
+
+                    </div>
+
                 </div>
-            </div>
-        </section>
 
-        <!-- CONTACTO -->
-        <section id="contacto" class="contact-section">
+            </div>
+
+            <div class="manual-bottom">
+
+                <button
+                    id="cancelManual"
+                    class="keep-button"
+                    type="button"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    id="applyManual"
+                    class="apply-main-button"
+                    type="button"
+                >
+                    Aplicar cambios
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div
+    id="resultModal"
+    class="modal hidden"
+>
+
+    <div class="modal-backdrop"></div>
+
+    <div class="result-modal">
+
+        <button
+            id="closeResult"
+            class="close-modal"
+            type="button"
+        >
+            ×
+        </button>
+
+        <div class="result-header">
+
+            <p class="eyebrow">
+                RESULTADOS DEL ANÁLISIS
+            </p>
+
+            <h2>
+                Análisis ocular completado
+            </h2>
+
+            <p id="resultFileName">
+                Imagen analizada
+            </p>
+
+        </div>
+
+        <div class="result-status">
+
+            <div
+                id="resultIcon"
+                class="result-icon-large"
+            >
+                ?
+            </div>
+
+            <p class="eyebrow">
+                RESULTADO EXPERIMENTAL
+            </p>
+
+            <h3 id="resultTitle">
+                Modelo de detección pendiente
+            </h3>
+
+            <p id="resultDescription">
+                El procesamiento de la imagen se completó.
+            </p>
+
+        </div>
+
+        <div class="result-details">
+
             <div>
-                <p class="eyebrow">CONTACTO</p>
-                <h2>¿Tienes alguna pregunta?</h2>
-                <p>
-                    conectar despuesss
-                </p>
+
+                <span>
+                    Procesamiento utilizado
+                </span>
+
+                <strong id="resultProcessing">
+                    -
+                </strong>
+
             </div>
 
-            <a href="correo: neuroeye@gmail.com" class="secondary-button">
-                Escribir al proyecto
-            </a>
-        </section>
-    </main>
+            <div>
 
-    <footer>
-        <strong>NEURO EYE</strong>
-        <span>Proyecto académico de investigación</span>
-    </footer>
+                <span>
+                    Características analizadas
+                </span>
 
-    <script src="app.js"></script>
+                <strong>
+                    Intensidad, color y distribución tonal
+                </strong>
+
+            </div>
+
+        </div>
+
+        <div class="medical-warning">
+
+            <strong>
+                IMPORTANTE
+            </strong>
+
+            <p>
+                Este sistema es una herramienta experimental
+                de investigación y no constituye un diagnóstico
+                médico. Cualquier resultado relacionado con
+                Alzheimer debe ser confirmado mediante una
+                evaluación realizada por un médico o profesional
+                de la salud.
+            </p>
+
+        </div>
+
+        <div class="result-actions">
+
+            <button
+                id="newAnalysisButton"
+                class="apply-main-button"
+                type="button"
+            >
+                Analizar otra imagen
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
 </body>
 </html>
